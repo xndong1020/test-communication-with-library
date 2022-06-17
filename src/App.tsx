@@ -4,14 +4,15 @@ import {
   GlobalObservable,
   Message,
   Button,
+  LIBRARARY_NAME,
 } from "nicole-test-components-library";
 
 function App() {
   const [messages, setMessages] = useState([] as string[]);
   const handleNewMessage = (newMessage: Message | undefined) => {
     if (!newMessage) return;
-    const { action, payload } = newMessage;
-    if (action === "ToParent") {
+    const { target, payload } = newMessage;
+    if (target === "MainProject") {
       setMessages((currentMessages) => [...currentMessages, payload.data]);
     }
   };
@@ -25,7 +26,8 @@ function App() {
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     GlobalObservable.publish({
-      action: "ToLibrary",
+      target: LIBRARARY_NAME,
+      action: "someActionName",
       payload: { data: e.target.value },
     });
   };
