@@ -6145,10 +6145,10 @@ neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-nicole-test-components-library@^0.1.16:
-  version "0.1.16"
-  resolved "https://registry.yarnpkg.com/nicole-test-components-library/-/nicole-test-components-library-0.1.16.tgz#24dfb45d6d3bb7abd15b16e007a8676e20fafb0f"
-  integrity sha512-RvdrUkE5FAaCyTeO0foAhbTUJ6yVOggBWt1v2x8wMh7PTXe8EQNjEaHmeemTkHqC5eCDwXPPDseoco87trba4w==
+nicole-test-components-library@^0.1.18:
+  version "0.1.18"
+  resolved "https://registry.yarnpkg.com/nicole-test-components-library/-/nicole-test-components-library-0.1.18.tgz#f9eb2435013860b087ba7696ef319cb9d446fa9b"
+  integrity sha512-DQXveikAJYUCg3krn4hl3YhpXi33r7IBcpqHjIHbXDnQYb+wEYGaF91nPXCwaYMunVyNlUk/FYFCk+pqIx5ufg==
 
 no-case@^3.0.4:
   version "3.0.4"

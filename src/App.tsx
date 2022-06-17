@@ -8,7 +8,8 @@ import {
 
 function App() {
   const [messages, setMessages] = useState([] as string[]);
-  const handleNewMessage = (newMessage: Message) => {
+  const handleNewMessage = (newMessage: Message | undefined) => {
+    if (!newMessage) return;
     const { action, payload } = newMessage;
     if (action === "ToParent") {
       setMessages((currentMessages) => [...currentMessages, payload.data]);
