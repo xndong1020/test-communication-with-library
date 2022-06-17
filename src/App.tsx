@@ -1,34 +1,53 @@
-import React, { useEffect } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import {
-  globalObservable,
-  Button,
   Input,
+  GlobalObservable,
+  Message,
+  Button,
 } from "nicole-test-components-library";
-import logo from "./logo.svg";
-import "./App.css";
 
 function App() {
-  useEffect(() => {
-    console.log("aaa");
-    globalObservable.publish("Message 1111");
-  }, []);
-
-  const handleNewMessage = (newMessage: string) => {
-    // setMessages((currentMessages) => currentMessages.concat(newMessage));
-    alert(`Paren received new message from child: ${newMessage}`);
+  const [messages, setMessages] = useState([] as string[]);
+  const handleNewMessage = (newMessage: Message) => {
+    const { action, payload } = newMessage;
+    if (action === "ToParent") {
+      setMessages((currentMessages) => [...currentMessages, payload.data]);
+    }
   };
 
   useEffect(() => {
-    console.log("Start subscribe");
-    globalObservable.subscribe(handleNewMessage);
+    GlobalObservable.subscribe(handleNewMessage);
     return () => {
-      globalObservable.unsubscribe(handleNewMessage);
+      GlobalObservable.unsubscribe(handleNewMessage);
     };
   }, [handleNewMessage]);
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    GlobalObservable.publish({
+      action: "ToLibrary",
+      payload: { data: e.target.value },
+    });
+  };
 
   return (
     <div className="App">
       <header className="App-header">
+        <ul>
+          {!!messages.length &&
+            messages.map((message, idx) => {
+              return <li key={idx}>{message}</li>;
+            })}
+        </ul>
+        <Input label="Input from library" />
+        <hr />
+        <label htmlFor="inputParent">Input from Parent project</label>
+        <input
+          type="text"
+          name="inputParent"
+          id="inputParent"
+          onChange={handleChange}
+        />
+        <br />
         <Button />
       </header>
     </div>
