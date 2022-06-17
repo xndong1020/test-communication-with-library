@@ -25,7 +25,7 @@ function App() {
   }, [handleNewMessage]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    GlobalObservable.publish({
+    GlobalObservable.dispatch({
       target: LIBRARARY_NAME,
       action: "someActionName",
       payload: { data: e.target.value },
