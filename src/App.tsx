@@ -28,6 +28,7 @@ function App() {
     GlobalObservable.dispatch({
       target: LIBRARARY_NAME,
       action: "someActionName",
+      isOnce: true,
       payload: { data: e.target.value },
     });
   };

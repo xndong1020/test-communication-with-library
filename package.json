@@ -143,7 +143,7 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.25",
-    "nicole-test-components-library": "^0.1.21",
+    "nicole-test-components-library": "^0.1.25",
     "styled-components": "^5.3.5"
   }
 }
